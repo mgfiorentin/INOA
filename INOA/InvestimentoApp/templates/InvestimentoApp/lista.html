@@ -1,7 +1,15 @@
 <h1>Lista de Empresas</h1>
 
+<button>
+  <a href="{% url 'addAtivo' %}">Monitorar novo ativo</a>
+</button>
+
+<button>
+  <a href="{% url 'consultaAtivos' %}">Consultar ativos monitorados</a>
+</button>
+
 <div>
-  <div><a href="http://127.0.0.1:8000/investimento/">Voltar</a></div>
+  <div><a href="{% url 'index' %}">Voltar</a></div>
   <table class="table">
     <thead>
       <tr>
@@ -12,8 +20,7 @@
         <th>Data de atualização</th>
       </tr>
 
-      {% for empresa in lista_empresas%}
-      {%if empresa.cd_acao != ""%}
+      {% for empresa in lista_empresas%} {%if empresa.cd_acao != ""%}
       <tr>
         <td>{{empresa.cd_acao_rdz}}</td>
         <td>{{empresa.nm_empresa}}</td>
@@ -22,8 +29,7 @@
         <td>{{empresa.updated_at}}</td>
         <td><a href="/investimento/{{empresa.id}}">Detalhe</a></td>
       </tr>
-      {%endif%}
-      {%endfor%}
+      {%endif%} {%endfor%}
     </thead>
   </table>
 </div>

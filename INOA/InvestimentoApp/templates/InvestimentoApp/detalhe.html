@@ -1,0 +1,30 @@
+<h1>Detalhe dos ativos da empresa {{detalhe_empresa.nm_empresa}}</h1>
+<div><a href="{% url 'lista' %}">Voltar</a></div>
+
+<div>
+  <dl>
+    <dt>ID#</dt>
+    <dd>{{detalhe_empresa.id}}</dd>
+    <dt>Código Ação RDZ</dt>
+    <dd>{{detalhe_empresa.cd_acao_rdz}}</dd>
+    <dt>Setor Econômico</dt>
+    <dd>{{detalhe_empresa.setor_economico}}</dd>
+    <dt>Subsetor</dt>
+    <dd>{{detalhe_empresa.subsetor}}</dd>
+    <dt>Segmento</dt>
+    <dd>{{detalhe_empresa.segmento}}</dd>
+    <dt>Código das ações</dt>
+
+    <dd>{{detalhe_empresa.cd_acao}}</dd>
+
+    <dt>CNPJ</dt>
+    <dd>{{detalhe_empresa.tx_cnpj}}</dd>
+    <dt>Data de atualização</dt>
+    <dd>{{detalhe_empresa.updated_at}}</dd>
+  </dl>
+</div>
+
+
+<div>
+    <td></td>
+</div>
