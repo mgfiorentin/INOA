@@ -1,0 +1,29 @@
+<h1>Lista de Empresas</h1>
+
+<div>
+  <div><a href="http://127.0.0.1:8000/investimento/">Voltar</a></div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Código Empresa</th>
+        <th>Nome da Empresa</th>
+        <th>Setor Econômico</th>
+        <th>Ativos</th>
+        <th>Data de atualização</th>
+      </tr>
+
+      {% for empresa in lista_empresas%}
+      {%if empresa.cd_acao != ""%}
+      <tr>
+        <td>{{empresa.cd_acao_rdz}}</td>
+        <td>{{empresa.nm_empresa}}</td>
+        <td>{{empresa.setor_economico}}</td>
+        <td>{{empresa.cd_acao}}</td>
+        <td>{{empresa.updated_at}}</td>
+        <td><a href="/investimento/{{empresa.id}}">Detalhe</a></td>
+      </tr>
+      {%endif%}
+      {%endfor%}
+    </thead>
+  </table>
+</div>
