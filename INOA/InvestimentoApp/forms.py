@@ -3,10 +3,9 @@ from multiprocessing.sharedctypes import Value
 from unicodedata import decimal
 from django import forms
 
+from .models import AtivosMonitorados
 
-
-class AtivoForm(forms.Form):
-    codigo_ativo = forms.CharField(label='Código do ativo', max_length=20)
-    tunel_max = forms.DecimalField(max_digits=10, decimal_places=2)
-    tunel_min = forms.DecimalField(max_digits=10, decimal_places=2)
-    periodicidade =forms.IntegerField()
+class AtivoForm(forms.ModelForm):
+    class Meta:
+        model = AtivosMonitorados
+        fields = ('codigo_ativo', 'tunel_max', 'tunel_min', 'periodicidade')

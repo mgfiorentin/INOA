@@ -1,6 +1,5 @@
-<form action="/investimento/add" method="post">
+<form action="/investimento/{{ativo.id}}/edit" method="post">
     {% csrf_token %}
     {{ form }}
     <input type="submit" value="Submit">
 </form>
-

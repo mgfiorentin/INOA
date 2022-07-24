@@ -1,0 +1,31 @@
+<h1>Ativos monitorados</h1>
+
+<button>
+  <a href="{% url 'addAtivo' %}">Monitorar novo ativo</a>
+</button>
+
+
+<div>
+  <div><a href="{% url 'lista' %}">Voltar</a></div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Código do ativo</th>
+        <th>Túnel máx.</th>
+        <th>Túnel min</th>
+        <th>Periodicidade [h]</th>
+      </tr>
+
+      {% for ativo in ativos%}
+      <tr>
+        <td>{{ativo.codigo_ativo}}</td>
+        <td>{{ativo.tunel_max}}</td>
+        <td>{{ativo.tunel_min}}</td>
+        <td>{{ativo.periodicidade}}</td>
+        <td><button><a href="{% url 'editAtivo' ativo.id %}"> Editar </a></button</td>
+        <td><button><a href="{% url 'deleteAtivo' ativo.id %}"> Excluir </a></button></td>
+      </tr>
+       {%endfor%}
+    </thead>
+  </table>
+</div>
