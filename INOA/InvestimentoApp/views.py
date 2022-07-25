@@ -94,3 +94,16 @@ def deleteAtivo(request, ativo_id):
         return redirect ('consultaAtivos')
     
     return render(request, 'investimentoapp/deleteAtivo.html', {'ativo': ativo})
+
+def historicoAtivo(request, ativo_id):
+    
+    ativo = AtivosMonitorados.objects.get(id=ativo_id)
+    
+    ativo_historico = HistoricoPrecos.objects.filter(codigo_ativo = ativo.codigo_ativo)
+    
+    
+    return render(request, 'investimentoapp/historico.html', {'historico': ativo_historico})
+
+
+
+

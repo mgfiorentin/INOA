@@ -1,12 +1,14 @@
 <h1>Ativos monitorados</h1>
+<p>
+<button><a href="{% url 'lista' %}">Voltar</a></button>
 
 <button>
   <a href="{% url 'addAtivo' %}">Monitorar novo ativo</a>
 </button>
-
+</p>
 
 <div>
-  <div><a href="{% url 'lista' %}">Voltar</a></div>
+
   <table class="table">
     <thead>
       <tr>
@@ -22,6 +24,7 @@
         <td>{{ativo.tunel_max}}</td>
         <td>{{ativo.tunel_min}}</td>
         <td>{{ativo.periodicidade}}</td>
+        <td><button><a href="{% url 'historicoAtivo' ativo.id %}"> Histórico de preços </a></button</td>
         <td><button><a href="{% url 'editAtivo' ativo.id %}"> Editar </a></button</td>
         <td><button><a href="{% url 'deleteAtivo' ativo.id %}"> Excluir </a></button></td>
       </tr>

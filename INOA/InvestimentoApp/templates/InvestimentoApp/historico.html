@@ -1,0 +1,26 @@
+<h1>Ativos monitorados</h1>
+
+<button>
+  <a href="{% url 'consultaAtivos' %}">Voltar</a>
+</button>
+
+
+<div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Código do ativo</th>
+        <th>Preço</th>
+        <th>Data de atualização</th>
+      </tr>
+
+      {% for ativo in historico%}
+      <tr>
+        <td>{{ativo.codigo_ativo}}</td>
+        <td>{{ativo.valor}}</td>
+        <td>{{ativo.data_att}}</td>
+      </tr>
+       {%endfor%}
+    </thead>
+  </table>
+</div>
