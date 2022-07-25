@@ -1,5 +1,9 @@
 import requests
 import json
+from .models import AtivosMonitorados, HistoricoPrecos
+import logging
+from background_task import background
+
 
 def CarregarEmpresas():
         try:
@@ -33,3 +37,20 @@ def CarregarAtivoByCodigo(codigo):
         
         return ativo
     
+
+@background(schedule=0)
+def obterCotacaoes(codigo):
+
+    ativo = AtivosMonitorados.objects.get(codigo_ativo=codigo)
+    
+    url= 'https://api-cotacao-b3.labdo.it/api/cotacao/cd_acao/%s/1' %ativo.codigo_ativo  
+    r = requests.get(url)
+    cotacao = r.json()
+
+    
+    historico = HistoricoPrecos(codigo_ativo = ativo.codigo_ativo, valor = cotacao[0]['vl_medio'], data_att = cotacao[0]['updated_at'], ativo_id = ativo.id)
+    historico.save()
+    
+      
+
+    return None
