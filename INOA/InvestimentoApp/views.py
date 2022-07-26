@@ -1,23 +1,14 @@
 
-
-from tabnanny import verbose
 from django.shortcuts import render, redirect
-from django.template import loader
 from django.http import HttpResponse
-from django.contrib import messages
 
 
 from .models import AtivosMonitorados, HistoricoPrecos
-
 from .forms import AtivoForm
-from datetime import datetime
+from .services import CarregarEmpresaById, CarregarEmpresas, obterCotacaoes
+
 
 from background_task.models import CompletedTask, Task
-
-
-
-
-from .services import CarregarAtivoByCodigo, CarregarEmpresaById, CarregarEmpresas, obterCotacaoes
 
 
 def index(request):
@@ -26,22 +17,14 @@ def index(request):
 
 def lista(request):
     lista_empresas = CarregarEmpresas();
-    template = loader.get_template('investimentoapp/lista.html')
-    context = {
-        'lista_empresas' : lista_empresas,    
-    }
-    return HttpResponse(template.render(context,request))
+
+    return render(request, 'investimentoapp/lista.html', {'lista_empresas': lista_empresas})
 
 def detalhe(request, empresa_id):
-    
     detalhe_empresa = CarregarEmpresaById(empresa_id)
     
-    template = loader.get_template('investimentoapp/detalhe.html')
-    context = {
-        'detalhe_empresa': detalhe_empresa,        
-    }
-    return HttpResponse(template.render(context,request))
-    
+    return render(request, 'investimentoapp/detalhe.html', {'detalhe_empresa': detalhe_empresa})
+
 def addAtivo(request):
     
     form = AtivoForm(request.POST or None)
@@ -55,22 +38,14 @@ def addAtivo(request):
 
         return redirect('consultaAtivos')
         
-    template = loader.get_template('investimentoapp/add.html')
-    context = {'form': form
-        
-    }
-    return HttpResponse(template.render(context,request))
+    return render(request, 'investimentoapp/add.html', {'form': form})
 
 def consultaAtivos(request):
-    
+
     ativos = AtivosMonitorados.objects.all()
     
-    template = loader.get_template('investimentoapp/monitorados.html')
-    context = {
-        'ativos': ativos,        
-    }
-    return HttpResponse(template.render(context,request))
-    
+    return render(request, 'investimentoapp/monitorados.html', {'ativos': ativos})
+
 def editAtivo(request, ativo_id):
     
     ativo = AtivosMonitorados.objects.get(id=ativo_id)
@@ -101,17 +76,13 @@ def deleteAtivo(request, ativo_id):
         CompletedTask.objects.get(verbose_name = ativo.codigo_ativo).delete()
         return redirect ('consultaAtivos')
     
-    
     return render(request, 'investimentoapp/deleteAtivo.html', {'ativo': ativo})
 
 def historicoAtivo(request, ativo_id):
     
     ativo = AtivosMonitorados.objects.get(id=ativo_id)
-    
     ativo_historico = HistoricoPrecos.objects.filter(codigo_ativo = ativo.codigo_ativo)
     
-
-        
     return render(request, 'investimentoapp/historico.html', {'historico': ativo_historico})
 
 
