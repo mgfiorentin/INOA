@@ -55,7 +55,6 @@ def addAtivo(request):
 
         return redirect('consultaAtivos')
         
-    
     template = loader.get_template('investimentoapp/add.html')
     context = {'form': form
         
@@ -72,7 +71,6 @@ def consultaAtivos(request):
     }
     return HttpResponse(template.render(context,request))
     
-
 def editAtivo(request, ativo_id):
     
     ativo = AtivosMonitorados.objects.get(id=ativo_id)
@@ -81,6 +79,14 @@ def editAtivo(request, ativo_id):
     
     if form.is_valid():
         form.save()
+        
+        Task.objects.get(verbose_name = ativo.codigo_ativo).delete()
+        CompletedTask.objects.get(verbose_name = ativo.codigo_ativo).delete()
+        
+        ativo = form.cleaned_data['codigo_ativo']
+        periodicidade_sec = form.cleaned_data['periodicidade']*60*60
+        obterCotacaoes(ativo, repeat=periodicidade_sec, repeat_until=None, verbose_name='%s'%ativo)
+        
         return redirect('consultaAtivos')
 
     return render(request, 'investimentoapp/editAtivo.html', {'ativo': ativo, 'form':form})
