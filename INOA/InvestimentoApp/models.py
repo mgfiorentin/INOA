@@ -2,7 +2,7 @@ from django.db import models
 from django.core.validators import MinValueValidator
 
 class AtivosMonitorados(models.Model):
-    codigo_ativo = models.TextField('Código do ativo', 
+    codigo_ativo = models.CharField('Código do ativo', 
                                     max_length=15, 
                                     unique=True)
     
@@ -21,7 +21,7 @@ class AtivosMonitorados(models.Model):
                                         validators=[MinValueValidator(1, 'Periodicidade deve ser maior que 1h')])
     
 class HistoricoPrecos(models.Model):
-    codigo_ativo = models.TextField('Código do ativo', max_length=15)
+    codigo_ativo = models.CharField('Código do ativo', max_length=15)
     valor = models.DecimalField(max_digits=10, decimal_places=2)
     data_att = models.DateTimeField('Data de atualização')
     ativo = models.ForeignKey(AtivosMonitorados, on_delete=models.CASCADE)

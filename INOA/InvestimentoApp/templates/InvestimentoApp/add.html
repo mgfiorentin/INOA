@@ -1,6 +1,10 @@
-<form action="/investimento/add" method="post">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Submit">
-</form>
-
+<div>
+  <form
+    style="display: flex; flex-direction: column;"
+    action="/investimento/add"
+    method="post"
+  >
+    {% csrf_token %} {{ form }}
+    <input type="submit" value="Submit" />
+  </form>
+</div>
