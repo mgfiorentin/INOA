@@ -1,7 +1,10 @@
 import requests
 import json
+
+from django.core.mail import send_mail
+
 from .models import AtivosMonitorados, HistoricoPrecos
-import logging
+
 from background_task import background
 
 
@@ -47,10 +50,27 @@ def obterCotacaoes(codigo):
     r = requests.get(url)
     cotacao = r.json()
 
-    
     historico = HistoricoPrecos(codigo_ativo = ativo.codigo_ativo, valor = cotacao[0]['vl_medio'], data_att = cotacao[0]['updated_at'], ativo_id = ativo.id)
     historico.save()
     
-      
-
+    if historico.valor >= ativo.tunel_max:
+        mensagem = 'Oportunidade de venda do ativo %s\nTunel configurado: R$ %s\nCotação atual: R$ %s' %(ativo.codigo_ativo, ativo.tunel_max, historico.valor) 
+        send_mail(
+            subject = 'Oportunidade de venda de ativo!',
+            message = mensagem,
+            recipient_list = ['matheus.fiorentin@gmail.com',],
+            from_email='matheus.fiorentin@gmail.com',
+            fail_silently = False
+        )
+        
+    if historico.valor <= ativo.tunel_min:
+        mensagem = 'Oportunidade de compra do ativo %s\nTunel configurado: R$ %s\nCotação atual: R$ %s' %(ativo.codigo_ativo, ativo.tunel_min,historico.valor)
+        send_mail(
+            subject = 'Oportunidade de compra de ativo!',
+            message = mensagem,
+            recipient_list = ['matheus.fiorentin@gmail.com',],
+            from_email='matheus.fiorentin@gmail.com',
+            fail_silently = False
+        )
+       
     return None
