@@ -18,7 +18,6 @@
         <th>Nome da Empresa</th>
         <th>Setor Econômico</th>
         <th>Ativos</th>
-        <th>Data de atualização</th>
       </tr>
 
       {% for empresa in lista_empresas%} {%if empresa.cd_acao != ""%}
@@ -27,7 +26,6 @@
         <td>{{empresa.nm_empresa}}</td>
         <td>{{empresa.setor_economico}}</td>
         <td>{{empresa.cd_acao}}</td>
-        <td>{{empresa.updated_at}}</td>
         <td><button><a href="{% url 'detalheEmpresa' empresa.id %}"> Detalhe </a></button></td>
       </tr>
       {%endif%} {%endfor%}
