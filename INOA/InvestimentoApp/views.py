@@ -1,19 +1,15 @@
-
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-
 
 from .models import AtivosMonitorados, HistoricoPrecos
 from .forms import AtivoForm
 from .services import CarregarEmpresaById, CarregarEmpresas, obterCotacaoes
 
-
 from background_task.models import CompletedTask, Task
-
 
 def index(request):
        
-    return HttpResponse("InvestimentoApp Index")
+    return render(request, 'investimentoapp/index.html')
 
 def lista(request):
     lista_empresas = CarregarEmpresas();
