@@ -1,0 +1,12 @@
+<div>
+  <form
+    style="display: flex; flex-direction: column; max-width: 15rem"
+    action="/investimento/add"
+    method="post"
+  >
+    {% csrf_token %} {{ form }}
+    
+    <input type="submit" value="Monitorar" />
+  </form>
+  <button><a href="{% url 'listaEmpresas' %}">Voltar</a></button>
+</div>

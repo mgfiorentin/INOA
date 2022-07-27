@@ -11,15 +11,15 @@ def index(request):
        
     return render(request, 'investimentoapp/index.html')
 
-def lista(request):
+def listaEmpresas(request):
     lista_empresas = CarregarEmpresas();
 
-    return render(request, 'investimentoapp/lista.html', {'lista_empresas': lista_empresas})
+    return render(request, 'investimentoapp/listaEmpresa.html', {'lista_empresas': lista_empresas})
 
-def detalhe(request, empresa_id):
+def detalheEmpresa(request, empresa_id):
     detalhe_empresa = CarregarEmpresaById(empresa_id)
     
-    return render(request, 'investimentoapp/detalhe.html', {'detalhe_empresa': detalhe_empresa})
+    return render(request, 'investimentoapp/detalheEmpresa.html', {'detalhe_empresa': detalhe_empresa})
 
 def addAtivo(request):
     
@@ -34,13 +34,13 @@ def addAtivo(request):
 
         return redirect('consultaAtivos')
         
-    return render(request, 'investimentoapp/add.html', {'form': form})
+    return render(request, 'investimentoapp/addAtivo.html', {'form': form})
 
 def consultaAtivos(request):
 
     ativos = AtivosMonitorados.objects.all()
     
-    return render(request, 'investimentoapp/monitorados.html', {'ativos': ativos})
+    return render(request, 'investimentoapp/ativosMonitorados.html', {'ativos': ativos})
 
 def editAtivo(request, ativo_id):
     
@@ -79,8 +79,4 @@ def historicoAtivo(request, ativo_id):
     ativo = AtivosMonitorados.objects.get(id=ativo_id)
     ativo_historico = HistoricoPrecos.objects.filter(codigo_ativo = ativo.codigo_ativo)
     
-    return render(request, 'investimentoapp/historico.html', {'historico': ativo_historico})
-
-
-
-
+    return render(request, 'investimentoapp/historicoAtivo.html', {'historico': ativo_historico})

@@ -1,5 +1,9 @@
-<form action="/investimento/{{ativo.id}}/edit" method="post">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Submit">
+<form
+  style="display: flex; flex-direction: column; max-width: 15rem"
+  action="/investimento/ativos/{{ativo.id}}/edit"
+  method="post"
+>
+  {% csrf_token %} {{ form }}
+  <input type="submit" value="Atualizar" />
 </form>
+<button><a href="{% url 'listaEmpresas' %}">Voltar</a></button>

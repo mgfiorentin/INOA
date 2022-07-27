@@ -1,10 +1,7 @@
-
-  <li>
-    <p>Código do ativo: {{ativo.codigo_ativo}}</p>
-  </li>
-
+<p>Código do ativo: {{ativo.codigo_ativo}}</p>
 
 <form method="POST">
   {% csrf_token %}
+  <button><a href="{% url 'listaEmpresas' %}">Voltar</a></button>
   <button type="submit">Confirmar exclusão do ativo?</button>
 </form>

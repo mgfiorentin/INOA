@@ -4,12 +4,12 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('lista', views.lista, name='lista'),
-    path('<int:empresa_id>/', views.detalhe, name='detalhe'),
-    path('add', views.addAtivo, name='addAtivo'),
-    path('monitorados', views.consultaAtivos, name='consultaAtivos'),
-    path('<int:ativo_id>/edit', views.editAtivo, name='editAtivo'),
-    path('<int:ativo_id>/delete', views.deleteAtivo, name='deleteAtivo'),
-    path('<int:ativo_id>/historico', views.historicoAtivo, name='historicoAtivo'),
+    path('empresas', views.listaEmpresas, name='listaEmpresas'),
+    path('empresas/<int:empresa_id>/', views.detalheEmpresa, name='detalheEmpresa'),
     
-]
+    path('ativos', views.consultaAtivos, name='consultaAtivos'),
+    path('ativos/add', views.addAtivo, name='addAtivo'),
+    path('ativos/<int:ativo_id>/edit', views.editAtivo, name='editAtivo'),
+    path('ativos/<int:ativo_id>/delete', views.deleteAtivo, name='deleteAtivo'),
+    path('ativos/<int:ativo_id>/historico', views.historicoAtivo, name='historicoAtivo'),
+    ]

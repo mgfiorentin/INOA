@@ -28,7 +28,7 @@
         <td>{{empresa.setor_economico}}</td>
         <td>{{empresa.cd_acao}}</td>
         <td>{{empresa.updated_at}}</td>
-        <td><a href="/investimento/{{empresa.id}}">Detalhe</a></td>
+        <td><button><a href="{% url 'detalheEmpresa' empresa.id %}"> Detalhe </a></button></td>
       </tr>
       {%endif%} {%endfor%}
     </thead>
