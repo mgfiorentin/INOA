@@ -45,6 +45,8 @@ Altere as seguintes linhas com suas informações de remetente:
 
 `DEFAULT_FROM_EMAIL = 'yourAppEmail@gmail.com'`
 
+`DEFAULT_TO_EMAIL = 'receiverMail@gmail.com'`
+
 
 # URLs
 A URL base da aplicação é
