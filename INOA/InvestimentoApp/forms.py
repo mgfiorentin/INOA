@@ -16,7 +16,7 @@ class AtivoForm(forms.ModelForm):
             tunel_min = cleaned_data.get("tunel_min")
 
             if tunel_max and tunel_min:
-                if tunel_min > tunel_max:
+                if tunel_min >= tunel_max:
                     raise forms.ValidationError(
                         'Túnel máximo deve ser maior que mínimo.'
                     )
