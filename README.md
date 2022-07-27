@@ -45,6 +45,10 @@ Altere as seguintes linhas com suas informações de remetente:
 
 `DEFAULT_FROM_EMAIL = 'yourAppEmail@gmail.com'`
 
+`DEFAULT_TO_EMAIL = 'receiverMail@gmail.com'`
+
+# Iniciando a aplicação
+O serviço de obter as cotações periodicamente e de envio de emails opera no background utilizando a biblioteca `django4-background-tasks`. Para tal, essa deve ser iniciada juntamente com o servidor da aplicação em outro terminal, através do comando `python manage.py process_tasks`. Esse terminal deve ser mantido operante durante todo o uso da aplicação.
 
 # URLs
 A URL base da aplicação é
