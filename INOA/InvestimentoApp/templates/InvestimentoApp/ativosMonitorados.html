@@ -18,12 +18,12 @@
         <th>Túnel min</th>
         <th>Periodicidade [h]</th>
       </tr>
-      
+
       {% for ativo in ativos%}
       <tr>
         <td>{{ativo.codigo_ativo}}</td>
-        <td>{{ativo.tunel_max}}</td>
-        <td>{{ativo.tunel_min}}</td>
+        <td>R$ {{ativo.tunel_max}}</td>
+        <td>R$ {{ativo.tunel_min}}</td>
         <td>{{ativo.periodicidade}}</td>
         <td><button><a href="{% url 'historicoAtivo' ativo.id %}"> Histórico de preços </a></button</td>
         <td><button><a href="{% url 'editAtivo' ativo.id %}"> Editar </a></button</td>

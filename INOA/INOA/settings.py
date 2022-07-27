@@ -133,7 +133,5 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'matheus.fiorentin@gmail.com'
 EMAIL_HOST_PASSWORD = ''
 DEFAULT_FROM_EMAIL = 'matheus.fiorentin@gmail.com'
-
-
-
+DEFAULT_TO_EMAIL = 'matheus.fiorentin@gmail.com'
 EMAIL_USE_SSL = False

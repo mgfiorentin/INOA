@@ -72,7 +72,11 @@ def deleteAtivo(request, ativo_id):
     if request.method == 'POST':
         ativo.delete()
         Task.objects.get(verbose_name = ativo.codigo_ativo).delete()
-        CompletedTask.objects.get(verbose_name = ativo.codigo_ativo).delete()
+                
+        completed_task = CompletedTask.objects.get(verbose_name = ativo.codigo_ativo)
+        if completed_task.exists():
+            completed_task.delete()
+        
         return redirect ('consultaAtivos')
     
     return render(request, 'investimentoapp/deleteAtivo.html', {'ativo': ativo})

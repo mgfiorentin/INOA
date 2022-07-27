@@ -3,6 +3,9 @@ import json
 
 from django.core.mail import send_mail
 
+
+from INOA.settings import DEFAULT_FROM_EMAIL, DEFAULT_TO_EMAIL
+
 from .models import AtivosMonitorados, HistoricoPrecos
 
 from background_task import background
@@ -58,8 +61,8 @@ def obterCotacaoes(codigo):
         send_mail(
             subject = 'Oportunidade de venda de ativo!',
             message = mensagem,
-            recipient_list = ['matheus.fiorentin@gmail.com',],
-            from_email='matheus.fiorentin@gmail.com',
+            recipient_list = [DEFAULT_TO_EMAIL,],
+            from_email= DEFAULT_FROM_EMAIL,
             fail_silently = False
         )
         
@@ -68,8 +71,8 @@ def obterCotacaoes(codigo):
         send_mail(
             subject = 'Oportunidade de compra de ativo!',
             message = mensagem,
-            recipient_list = ['matheus.fiorentin@gmail.com',],
-            from_email='matheus.fiorentin@gmail.com',
+            recipient_list = [DEFAULT_TO_EMAIL,],
+            from_email= DEFAULT_FROM_EMAIL,
             fail_silently = False
         )
        
