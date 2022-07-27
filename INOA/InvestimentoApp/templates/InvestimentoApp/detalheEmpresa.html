@@ -1,5 +1,10 @@
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+{% bootstrap_messages %}
+
 <h1>Detalhe dos ativos da empresa {{detalhe_empresa.nm_empresa}}</h1>
-<button><a href="{% url 'listaEmpresas' %}">Voltar</a></button>
+<a href="{% url 'listaEmpresas' %}"><button>Voltar</button></a>
 
 <div>
   <dl>

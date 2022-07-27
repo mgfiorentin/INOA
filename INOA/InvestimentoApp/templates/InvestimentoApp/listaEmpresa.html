@@ -1,14 +1,17 @@
+{% load bootstrap4 %} {% bootstrap_css %} {% bootstrap_javascript jquery='full'
+%} {% bootstrap_messages %}
+
 <h1>Lista de Empresas</h1>
 
-<button><a href="{% url 'index' %}">Voltar</a></button>
+<a href="{% url 'index' %}">
+  <button>Voltar</button>
+</a>
 
-<button>
-  <a href="{% url 'addAtivo' %}">Monitorar novo ativo</a>
-</button>
+<a href="{% url 'addAtivo' %}"><button>Monitorar novo ativo</button></a>
 
-<button>
-  <a href="{% url 'consultaAtivos' %}">Consultar ativos monitorados</a>
-</button>
+<a href="{% url 'consultaAtivos' %}"
+  ><button>Consultar ativos monitorados</button></a
+>
 
 <div>
   <table class="table">
@@ -26,7 +29,11 @@
         <td>{{empresa.nm_empresa}}</td>
         <td>{{empresa.setor_economico}}</td>
         <td>{{empresa.cd_acao}}</td>
-        <td><button><a href="{% url 'detalheEmpresa' empresa.id %}"> Detalhe </a></button></td>
+        <td>
+          <a href="{% url 'detalheEmpresa' empresa.id %}">
+            <button>Detalhe</button>
+          </a>
+        </td>
       </tr>
       {%endif%} {%endfor%}
     </thead>

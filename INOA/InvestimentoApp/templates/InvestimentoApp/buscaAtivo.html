@@ -1,3 +1,9 @@
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+{% bootstrap_messages %}
+
+
 <form   style="display: flex; flex-direction: column; max-width: 9rem">
     {{ ativos.form }}
     <input type="submit" value="Buscar"/>

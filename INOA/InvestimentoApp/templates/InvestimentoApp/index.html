@@ -1,16 +1,19 @@
+{% load bootstrap4 %} {% bootstrap_css %} {% bootstrap_javascript jquery='full'
+%} {% bootstrap_messages %}
+
 <i><h1>InvestimentoApp</h1></i>
 <h4>Bem vindo ao app para lhe ajudar a investir de forma inteligente</h4>
 
-    <p>O que gostaria de fazer?</p>
+<p>O que gostaria de fazer?</p>
 
-<button>
-    <a href="{%url 'listaEmpresas'%}">Listar empresas com ativos na B3</a>
-</button>
+<a href="{%url 'listaEmpresas'%}">
+  <button>Listar empresas com ativos na B3</button>
+</a>
 
-<button>
-    <a href="{%url 'addAtivo'%}">Monitorar novo ativo</a>
-</button>
+<a href="{%url 'addAtivo'%}">
+  <button>Monitorar novo ativo</button>
+</a>
 
-<button>
-    <a href="{%url 'consultaAtivos'%}">Consultar ativos monitorados</a>
-</button>
+<a href="{%url 'consultaAtivos'%}">
+  <button>Consultar ativos monitorados</button>
+</a>

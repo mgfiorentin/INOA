@@ -1,3 +1,9 @@
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+{% bootstrap_messages %}
+
+
 <div>
   <form
     style="display: flex; flex-direction: column; max-width: 15rem"
@@ -8,5 +14,5 @@
     
     <input type="submit" value="Monitorar" />
   </form>
-  <button><a href="{% url 'consultaAtivos' %}">Voltar</a></button>
+<a href="{% url 'consultaAtivos' %}"><button>Voltar</button></a>
 </div>

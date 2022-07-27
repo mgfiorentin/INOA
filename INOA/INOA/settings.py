@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'background_task',
-    'django_filters'
+    'django_filters',
+    'bootstrap4'
 ]
 
 MIDDLEWARE = [

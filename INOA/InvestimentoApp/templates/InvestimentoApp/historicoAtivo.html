@@ -1,8 +1,13 @@
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+{% bootstrap_messages %}
+
 <h1>Ativos monitorados</h1>
 
-<button>
-  <a href="{% url 'consultaAtivos' %}">Voltar</a>
-</button>
+
+  <a href="{% url 'consultaAtivos' %}"><button>Voltar</button></a>
+
 
 
 <div>
@@ -12,6 +17,7 @@
         <th>Código do ativo</th>
         <th>Preço</th>
         <th>Data de atualização</th>
+
       </tr>
 
       {% for ativo in historico%}

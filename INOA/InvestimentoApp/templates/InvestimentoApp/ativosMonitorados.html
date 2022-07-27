@@ -1,12 +1,17 @@
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+{% bootstrap_messages %}
+
 <h1>Ativos monitorados</h1>
 <p>
-<button><a href="{% url 'listaEmpresas' %}">Voltar</a></button>
+<a href="{% url 'listaEmpresas' %}"><button>Voltar</button></a>
 
-<button>
-  <a href="{% url 'addAtivo' %}">Monitorar novo ativo</a>
-</button>
 
-<button><a href="{% url 'buscaAtivos' %}"> Buscar ativos monitorados </a></button
+  <a href="{% url 'addAtivo' %}"><button>Monitorar novo ativo</button></a>
+
+
+<a href="{% url 'buscaAtivos' %}"><button>Buscar ativos monitorados</button></a>
 </p>
 
 
@@ -19,6 +24,12 @@
         <th>Túnel máx.</th>
         <th>Túnel min</th>
         <th>Periodicidade [h]</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
       </tr>
 
       {% for ativo in ativos%}
@@ -27,9 +38,9 @@
         <td>R$ {{ativo.tunel_max}}</td>
         <td>R$ {{ativo.tunel_min}}</td>
         <td>{{ativo.periodicidade}}</td>
-        <td><button><a href="{% url 'historicoAtivo' ativo.id %}"> Histórico de preços </a></button</td>
-        <td><button><a href="{% url 'editAtivo' ativo.id %}"> Editar </a></button</td>
-        <td><button><a href="{% url 'deleteAtivo' ativo.id %}"> Excluir </a></button></td>
+        <td><a href="{% url 'historicoAtivo' ativo.id %}"><button>Histórico</button> </a></td>
+        <td><a href="{% url 'editAtivo' ativo.id %}"><button>Editar</button> </a></td>
+        <td><a href="{% url 'deleteAtivo' ativo.id %}"><button>Excluir</button> </a></td>
       </tr>
        {%endfor%}
     </thead>

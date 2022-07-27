@@ -16,6 +16,8 @@ https://docs.djangoproject.com/en/4.0/topics/install/
 
 `django-filter`
 
+`django-bootstrap4`
+
 # Pastas e arquivos relevantes
 
 `/INOA` contém arquivos do projeto 'INOA', enquanto `INOA/InvestimentoApp` contém o app 'InvestimentoApp';
