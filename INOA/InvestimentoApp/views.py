@@ -1,8 +1,11 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+
+from .filters import AtivosFilter
 
 from .models import AtivosMonitorados, HistoricoPrecos
+
 from .forms import AtivoForm
+
 from .services import CarregarEmpresaById, CarregarEmpresas, obterCotacaoes
 
 from background_task.models import CompletedTask, Task
@@ -80,3 +83,9 @@ def historicoAtivo(request, ativo_id):
     ativo_historico = HistoricoPrecos.objects.filter(codigo_ativo = ativo.codigo_ativo)
     
     return render(request, 'investimentoapp/historicoAtivo.html', {'historico': ativo_historico})
+
+
+def buscaAtivos(request):
+    ativos = AtivosFilter(request.GET, queryset=AtivosMonitorados.objects.all())
+    
+    return render(request, 'investimentoapp/buscaAtivo.html', {'ativos': ativos})

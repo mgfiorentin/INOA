@@ -1,0 +1,30 @@
+<form   style="display: flex; flex-direction: column; max-width: 9rem">
+    {{ ativos.form }}
+    <input type="submit" value="Buscar"/>
+</form>
+
+<div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Código do ativo</th>
+          <th>Túnel máx.</th>
+          <th>Túnel min</th>
+          <th>Periodicidade [h]</th>
+        </tr>
+
+
+        {% for ativo in ativos.qs%}
+        <tr>
+          <td>{{ativo.codigo_ativo}}</td>
+          <td>{{ativo.tunel_max}}</td>
+          <td>{{ativo.tunel_min}}</td>
+          <td>{{ativo.periodicidade}}</td>
+          <td><button><a href="{% url 'historicoAtivo' ativo.id %}"> Histórico de preços </a></button</td>
+          <td><button><a href="{% url 'editAtivo' ativo.id %}"> Editar </a></button</td>
+          <td><button><a href="{% url 'deleteAtivo' ativo.id %}"> Excluir </a></button></td>
+        </tr>
+         {%endfor%}
+      </thead>
+    </table>
+  </div>

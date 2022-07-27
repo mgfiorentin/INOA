@@ -14,6 +14,9 @@
         <th>Data de atualização</th>
       </tr>
 
+      {%if ativos == None%}
+      <tr>Nenhum ativo monitado!</tr>
+      {%endif%}
       {% for ativo in historico%}
       <tr>
         <td>{{ativo.codigo_ativo}}</td>

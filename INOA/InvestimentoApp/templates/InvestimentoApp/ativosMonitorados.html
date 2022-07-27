@@ -5,6 +5,8 @@
 <button>
   <a href="{% url 'addAtivo' %}">Monitorar novo ativo</a>
 </button>
+
+<button><a href="{% url 'buscaAtivos' %}"> Buscar ativos monitorados </a></button
 </p>
 
 <div>
@@ -16,7 +18,7 @@
         <th>Túnel min</th>
         <th>Periodicidade [h]</th>
       </tr>
-
+      
       {% for ativo in ativos%}
       <tr>
         <td>{{ativo.codigo_ativo}}</td>
@@ -29,5 +31,6 @@
       </tr>
        {%endfor%}
     </thead>
+
   </table>
 </div>

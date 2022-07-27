@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'background_task'
+    'background_task',
+    'django_filters'
 ]
 
 MIDDLEWARE = [
