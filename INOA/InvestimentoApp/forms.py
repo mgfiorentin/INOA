@@ -8,7 +8,7 @@ from .models import AtivosMonitorados
 class AtivoForm(forms.ModelForm):
     class Meta:
         model = AtivosMonitorados
-        fields = ('codigo_ativo', 'tunel_max', 'tunel_min', 'periodicidade')
+        fields = ('codigo_ativo', 'tunel_max', 'tunel_min', 'periodicidade', 'email')
         
     def clean(self):
             cleaned_data = super().clean()

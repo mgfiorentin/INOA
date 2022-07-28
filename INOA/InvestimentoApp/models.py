@@ -19,6 +19,7 @@ class AtivosMonitorados(models.Model):
     
     periodicidade = models.IntegerField('Periodicidade de atualização [h]', 
                                         validators=[MinValueValidator(1, 'Periodicidade deve ser maior que 1h')])
+    email = models.EmailField(max_length=255)
     
 class HistoricoPrecos(models.Model):
     codigo_ativo = models.CharField('Código do ativo', max_length=15)
