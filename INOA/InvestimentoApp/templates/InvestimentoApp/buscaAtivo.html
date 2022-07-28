@@ -1,8 +1,7 @@
-{% load bootstrap4 %}
-{% bootstrap_css %}
-{% bootstrap_javascript jquery='full' %}
-{% bootstrap_messages %}
+{%extends 'base.html'%}
 
+
+{% block conteudo %}
 
 <form   style="display: flex; flex-direction: column; max-width: 9rem">
     {{ ativos.form }}
@@ -34,3 +33,4 @@
       </thead>
     </table>
   </div>
+  {%endblock conteudo%}

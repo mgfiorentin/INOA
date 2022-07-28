@@ -1,8 +1,9 @@
-{% load bootstrap4 %} {% bootstrap_css %} {% bootstrap_javascript jquery='full'
-%} {% bootstrap_messages %}
+{%extends 'base.html'%}
 
-<i><h1>InvestimentoApp</h1></i>
-<h4>Bem vindo ao app para lhe ajudar a investir de forma inteligente</h4>
+
+{% block conteudo %}
+
+<h4>Bem vindo ao aplicativo para lhe ajudar a investir de forma inteligente</h4>
 
 <p>O que gostaria de fazer?</p>
 
@@ -17,3 +18,7 @@
 <a href="{%url 'consultaAtivos'%}">
   <button>Consultar ativos monitorados</button>
 </a>
+
+
+
+{% endblock conteudo %}

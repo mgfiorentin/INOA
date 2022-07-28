@@ -1,7 +1,7 @@
-{% load bootstrap4 %}
-{% bootstrap_css %}
-{% bootstrap_javascript jquery='full' %}
-{% bootstrap_messages %}
+{%extends 'base.html'%}
+
+
+{% block conteudo %}
 
 <h1>Ativos monitorados</h1>
 <p>
@@ -16,7 +16,7 @@
 
 
 
-<div>
+<div >
   <table class="table" >
     <thead>
       <tr>
@@ -47,3 +47,4 @@
 
   </table>
 </div>
+{%endblock conteudo%}

@@ -1,7 +1,9 @@
-{% load bootstrap4 %}
-{% bootstrap_css %}
-{% bootstrap_javascript jquery='full' %}
-{% bootstrap_messages %}
+{%extends 'base.html'%}
+
+
+{% block conteudo %}
+
+
 
 <p>Código do ativo: {{ativo.codigo_ativo}}</p>
 
@@ -10,3 +12,4 @@
   <button><a href="{% url 'listaEmpresas' %}">Voltar</a></button>
   <button type="submit">Confirmar exclusão do ativo?</button>
 </form>
+{%endblock conteudo%}

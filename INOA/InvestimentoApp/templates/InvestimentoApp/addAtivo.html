@@ -1,9 +1,6 @@
-{% load bootstrap4 %}
-{% bootstrap_css %}
-{% bootstrap_javascript jquery='full' %}
-{% bootstrap_messages %}
+{% extends 'base.html' %}
 
-
+{% block conteudo %}
 <div>
   <form
     style="display: flex; flex-direction: column; max-width: 15rem"
@@ -16,3 +13,5 @@
   </form>
 <a href="{% url 'consultaAtivos' %}"><button>Voltar</button></a>
 </div>
+
+{% endblock conteudo %}

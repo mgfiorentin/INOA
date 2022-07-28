@@ -1,7 +1,7 @@
-{% load bootstrap4 %}
-{% bootstrap_css %}
-{% bootstrap_javascript jquery='full' %}
-{% bootstrap_messages %}
+{%extends 'base.html'%}
+
+
+{% block conteudo %}
 
 <h1>Detalhe dos ativos da empresa {{detalhe_empresa.nm_empresa}}</h1>
 <a href="{% url 'listaEmpresas' %}"><button>Voltar</button></a>
@@ -31,3 +31,6 @@
 <div>
     <td></td>
 </div>
+
+{%endblock conteudo%}
+
