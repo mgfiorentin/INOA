@@ -1,33 +1,30 @@
-{%extends 'base.html'%}
+{%extends 'base.html'%} {% block conteudo %}
+<div class="card shadow-sm container mt-4">
+  <div class="card-header"><b>Histórico de preços</b></div>
 
+<div class="mt-2 mb-2">  <a href="{% url 'consultaAtivos' %}"
+  ><button class="btn btn-sm btn-outline-primary">Voltar</button></a
+></div>
 
-{% block conteudo %}
-<h1>Ativos monitorados</h1>
+  <div class="body">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Código do ativo</th>
+          <th>Preço</th>
+          <th>Data de atualização</th>
+        </tr>
 
-
-  <a href="{% url 'consultaAtivos' %}"><button>Voltar</button></a>
-
-
-
-<div>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Código do ativo</th>
-        <th>Preço</th>
-        <th>Data de atualização</th>
-
-      </tr>
-
-      {% for ativo in historico%}
-      <tr>
-        <td>{{ativo.codigo_ativo}}</td>
-        <td>R$ {{ativo.valor}}</td>
-        <td>{{ativo.data_att}}</td>
-      </tr>
-       {%endfor%}
-    </thead>
-  </table>
+        {% for ativo in historico%}
+        <tr>
+          <td>{{ativo.codigo_ativo}}</td>
+          <td>R$ {{ativo.valor}}</td>
+          <td>{{ativo.data_att |date:"d/m/y H:i "}}</td>
+        </tr>
+        {%endfor%}
+      </thead>
+    </table>
+  </div>
 </div>
 
 {%endblock conteudo%}

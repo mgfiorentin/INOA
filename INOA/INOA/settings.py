@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -120,6 +121,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = 'static'
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static", "css"),
+)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
@@ -131,7 +136,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'matheus.fiorentin@gmail.com'
+EMAIL_HOST_USER = 'yourAppMail@gmail.com'
 EMAIL_HOST_PASSWORD = ''
-DEFAULT_FROM_EMAIL = 'matheus.fiorentin@gmail.com'
+DEFAULT_FROM_EMAIL = 'yourAppMail@gmail.com'
 EMAIL_USE_SSL = False

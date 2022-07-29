@@ -1,15 +1,20 @@
-{%extends 'base.html'%}
+{%extends 'base.html'%} {% block conteudo %}
 
+<div class="card shadow-sm col-sm-3 container m-3">
+  <h4 class="card-header">Excluir ativo {{ativo.codigo_ativo}}</h4>
 
-{% block conteudo %}
-
-
-
-<p>Código do ativo: {{ativo.codigo_ativo}}</p>
-
-<form method="POST">
-  {% csrf_token %}
-  <button><a href="{% url 'listaEmpresas' %}">Voltar</a></button>
-  <button type="submit">Confirmar exclusão do ativo?</button>
-</form>
+  <div class="card-body">
+    Deseja excluir o ativo {{ativo.codigo_ativo}}?
+    <p></p>
+    <form method="POST">
+      {% csrf_token %}
+      <a href="{% url 'listaEmpresas' %}"
+        ><button class="btn btn-outline-primary">Voltar</button></a
+      >
+      <button class="btn btn-outline-danger" type="submit">
+        Excluir
+      </button>
+    </form>
+  </div>
+</div>
 {%endblock conteudo%}

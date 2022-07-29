@@ -1,46 +1,55 @@
-{%extends 'base.html'%}
+{%extends 'base.html'%} {% block conteudo %}
+
+<div class="container mt-3 card round shadow-sm">
+  <div>
+    <div class="card-header"><h4>Lista de Empresas</h4></div>
+    <p></p>
+
+    <a href="{% url 'index' %}"
+      ><button class="btn btn-outline-primary">Voltar</button></a
+    >
+
+    <a href="{% url 'consultaAtivos' %}"
+      ><button class="btn btn-outline-info">Ativos</button></a
+    >
+
+    <a href="{% url 'addAtivo' %}"
+      ><button class="btn btn-outline-success" style="float: right">
+        Novo ativo
+      </button></a
+    >
 
 
-{% block conteudo %}
+    <div class="card-body">
+      <table class="table align-center">
+        <thead>
+          <tr>
+            <th>Código da Empresa</th>
+            <th>Nome da Empresa</th>
+            <th>Setor Econômico</th>
+            <th>Ativos</th>
+            <th></th>
+          </tr>
 
-<h1>Lista de Empresas</h1>
-
-<a href="{% url 'index' %}">
-  <button>Voltar</button>
-</a>
-
-<a href="{% url 'addAtivo' %}"><button>Monitorar novo ativo</button></a>
-
-<a href="{% url 'consultaAtivos' %}"
-  ><button>Consultar ativos monitorados</button></a
->
-
-<div>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Código Empresa</th>
-        <th>Nome da Empresa</th>
-        <th>Setor Econômico</th>
-        <th>Ativos</th>
-      </tr>
-
-      {% for empresa in lista_empresas%} {%if empresa.cd_acao != ""%}
-      <tr>
-        <td>{{empresa.cd_acao_rdz}}</td>
-        <td>{{empresa.nm_empresa}}</td>
-        <td>{{empresa.setor_economico}}</td>
-        <td>{{empresa.cd_acao}}</td>
-        <td>
-          <a href="{% url 'detalheEmpresa' empresa.id %}">
-            <button>Detalhe</button>
-          </a>
-        </td>
-      </tr>
-      {%endif%} {%endfor%}
-    </thead>
-  </table>
+          {% for empresa in lista_empresas%} {%if empresa.cd_acao != ""%}
+          <tr>
+            <td>{{empresa.cd_acao_rdz}}</td>
+            <td>{{empresa.nm_empresa}}</td>
+            <td>{{empresa.setor_economico}}</td>
+            <td>{{empresa.cd_acao}}</td>
+            <td>
+              <a href="{% url 'detalheEmpresa' empresa.id %}">
+                <button type="button" class="btn btn-sm btn-outline-secondary">
+                  Detalhe
+                </button>
+              </a>
+            </td>
+          </tr>
+          {%endif%} {%endfor%}
+        </thead>
+      </table>
+    </div>
+  </div>
 </div>
 
 {%endblock conteudo%}
-

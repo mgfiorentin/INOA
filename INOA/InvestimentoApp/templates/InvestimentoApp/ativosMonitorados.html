@@ -1,50 +1,66 @@
-{%extends 'base.html'%}
+{%extends 'base.html'%} {% block conteudo %}
 
+<div>
+  <div class="container card shadow-sm mt-4">
+    <div class="card-header"><h4>Ativos monitorados</h4></div>
+    <div class="mt-2">
+      <a href="{% url 'listaEmpresas' %}"
+        ><button class="btn btn-outline-primary">Voltar</button></a
+      >
 
-{% block conteudo %}
+      <a href="{% url 'buscaAtivos' %}"
+        ><button class="btn btn-outline-secondary">Buscar</button></a
+      >
 
-<h1>Ativos monitorados</h1>
-<p>
-<a href="{% url 'listaEmpresas' %}"><button>Voltar</button></a>
+      <a href="{% url 'addAtivo' %}"
+        ><button style="float: right" class="btn btn-outline-success">
+          Novo
+        </button></a
+      >
+    </div>
 
+    <div class="card-body">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Código do ativo</th>
+            <th>Túnel máx.</th>
+            <th>Túnel min</th>
+            <th>Periodicidade [h]</th>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
 
-  <a href="{% url 'addAtivo' %}"><button>Monitorar novo ativo</button></a>
-
-
-<a href="{% url 'buscaAtivos' %}"><button>Buscar ativos monitorados</button></a>
-</p>
-
-
-
-<div >
-  <table class="table" >
-    <thead>
-      <tr>
-        <th>Código do ativo</th>
-        <th>Túnel máx.</th>
-        <th>Túnel min</th>
-        <th>Periodicidade [h]</th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-      </tr>
-
-      {% for ativo in ativos%}
-      <tr>
-        <td>{{ativo.codigo_ativo}}</td>
-        <td>R$ {{ativo.tunel_max}}</td>
-        <td>R$ {{ativo.tunel_min}}</td>
-        <td>{{ativo.periodicidade}}</td>
-        <td><a href="{% url 'historicoAtivo' ativo.id %}"><button>Histórico</button> </a></td>
-        <td><a href="{% url 'editAtivo' ativo.id %}"><button>Editar</button> </a></td>
-        <td><a href="{% url 'deleteAtivo' ativo.id %}"><button>Excluir</button> </a></td>
-      </tr>
-       {%endfor%}
-    </thead>
-
-  </table>
+          {% for ativo in ativos%}
+          <tr>
+            <td>{{ativo.codigo_ativo}}</td>
+            <td>R$ {{ativo.tunel_max}}</td>
+            <td>R$ {{ativo.tunel_min}}</td>
+            <td>{{ativo.periodicidade}}</td>
+            <td>
+              <a href="{% url 'historicoAtivo' ativo.id %}"
+                ><button class="btn btn-sm btn-outline-secondary">
+                  Histórico
+                </button>
+              </a>
+            </td>
+            <td>
+              <a href="{% url 'editAtivo' ativo.id %}"
+                ><button class="btn btn-sm btn-outline-info">Editar</button>
+              </a>
+            </td>
+            <td>
+              <a href="{% url 'deleteAtivo' ativo.id %}"
+                ><button class="btn btn-sm btn-outline-danger">Excluir</button>
+              </a>
+            </td>
+          </tr>
+          {%endfor%}
+        </thead>
+      </table>
+    </div>
+  </div>
 </div>
+
 {%endblock conteudo%}

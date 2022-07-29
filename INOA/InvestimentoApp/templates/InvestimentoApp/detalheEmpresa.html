@@ -2,35 +2,32 @@
 
 
 {% block conteudo %}
+<div class="container m-3">
+  <h3>Detalhe dos ativos da empresa {{detalhe_empresa.nm_empresa}}</h3>
 
-<h1>Detalhe dos ativos da empresa {{detalhe_empresa.nm_empresa}}</h1>
-<a href="{% url 'listaEmpresas' %}"><button>Voltar</button></a>
+  
+  <div class="container m-3">
+    <dl>
+      <dt>ID#</dt>
+      <dd>{{detalhe_empresa.id}}</dd>
+      <dt>Código Ação RDZ</dt>
+      <dd>{{detalhe_empresa.cd_acao_rdz}}</dd>
+      <dt>Setor Econômico</dt>
+      <dd>{{detalhe_empresa.setor_economico}}</dd>
+      <dt>Subsetor</dt>
+      <dd>{{detalhe_empresa.subsetor}}</dd>
+      <dt>Segmento</dt>
+      <dd>{{detalhe_empresa.segmento}}</dd>
+      <dt>Código das ações</dt>
+  
+      <dd>{{detalhe_empresa.cd_acao}}</dd>
+  
+      <dt>CNPJ</dt>
+      <dd>{{detalhe_empresa.tx_cnpj}}</dd>
+    </dl>
+  </div>
+  
 
-<div>
-  <dl>
-    <dt>ID#</dt>
-    <dd>{{detalhe_empresa.id}}</dd>
-    <dt>Código Ação RDZ</dt>
-    <dd>{{detalhe_empresa.cd_acao_rdz}}</dd>
-    <dt>Setor Econômico</dt>
-    <dd>{{detalhe_empresa.setor_economico}}</dd>
-    <dt>Subsetor</dt>
-    <dd>{{detalhe_empresa.subsetor}}</dd>
-    <dt>Segmento</dt>
-    <dd>{{detalhe_empresa.segmento}}</dd>
-    <dt>Código das ações</dt>
-
-    <dd>{{detalhe_empresa.cd_acao}}</dd>
-
-    <dt>CNPJ</dt>
-    <dd>{{detalhe_empresa.tx_cnpj}}</dd>
-  </dl>
-</div>
-
-
-<div>
-    <td></td>
-</div>
-
+  <a href="{% url 'listaEmpresas' %}"><button class="btn btn-outline-primary">Voltar</button></a>
 {%endblock conteudo%}
 

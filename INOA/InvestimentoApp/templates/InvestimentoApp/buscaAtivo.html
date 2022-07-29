@@ -1,14 +1,14 @@
-{%extends 'base.html'%}
+{%extends 'base.html'%} {% block conteudo %}
 
+<div class="container mt-4 card shadow-sm">
+  <div class="card-header mt-2">
+    <form>
+      {{ ativos.form }}
+      <input class="btn btn-outline-primary" type="submit" value="Buscar"/>
+    </form>
+  </div>
 
-{% block conteudo %}
-
-<form   style="display: flex; flex-direction: column; max-width: 9rem">
-    {{ ativos.form }}
-    <input type="submit" value="Buscar"/>
-</form>
-
-<div>
+  <div class="card-body">
     <table class="table">
       <thead>
         <tr>
@@ -16,21 +16,38 @@
           <th>Túnel máx.</th>
           <th>Túnel min</th>
           <th>Periodicidade [h]</th>
+          <th></th>
+          <th></th>
+          <th></th>
         </tr>
-
 
         {% for ativo in ativos.qs%}
         <tr>
           <td>{{ativo.codigo_ativo}}</td>
-          <td>{{ativo.tunel_max}}</td>
-          <td>{{ativo.tunel_min}}</td>
+          <td>R$ {{ativo.tunel_max}}</td>
+          <td>R$ {{ativo.tunel_min}}</td>
           <td>{{ativo.periodicidade}}</td>
-          <td><button><a href="{% url 'historicoAtivo' ativo.id %}"> Histórico de preços </a></button</td>
-          <td><button><a href="{% url 'editAtivo' ativo.id %}"> Editar </a></button</td>
-          <td><button><a href="{% url 'deleteAtivo' ativo.id %}"> Excluir </a></button></td>
+          <td>
+            <a href="{% url 'historicoAtivo' ativo.id %}"
+              ><button class="btn btn-sm btn-outline-secondary">
+                Histórico
+              </button>
+            </a>
+          </td>
+          <td>
+            <a href="{% url 'editAtivo' ativo.id %}"
+              ><button class="btn btn-sm btn-outline-info">Editar</button>
+            </a>
+          </td>
+          <td>
+            <a href="{% url 'deleteAtivo' ativo.id %}"
+              ><button class="btn btn-sm btn-outline-danger">Excluir</button>
+            </a>
+          </td>
         </tr>
-         {%endfor%}
+        {%endfor%}
       </thead>
     </table>
   </div>
-  {%endblock conteudo%}
+</div>
+{%endblock conteudo%}
