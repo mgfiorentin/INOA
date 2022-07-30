@@ -5,7 +5,8 @@
 
 # Instruções de instalação
 ## Tecnologias e frameworks
-Projeto desenvolvido em Python v3.10.5 + Django v.4.0.6. Instruções de instalação disponíveis nos links:
+Projeto desenvolvido em Python v3.10.5 + Django v.4.0.6.
+Instruções de instalação disponíveis nos links:
 
 https://docs.djangoproject.com/en/3.1/topics/install/#install-python
 
@@ -32,14 +33,16 @@ https://docs.djangoproject.com/en/4.0/topics/install/
 
 `models.py` contém os modelos armazenados em banco de dados e suas relações;
 
+`services.py` contém serviços auxiliares;
+
 `urls.py` contém todas as URLs da aplicação;
 
 `views.py` contém todos os métodos relacionados às URLs;
 
 ## Configurações
-O envio de e-mails de notificações de compra/venda deve ser configurado, fornecendo um endereço e senha válida no arquivo `settings.py`. A autenticação via Gmail requer a configuração de uma "senha de aplicativos" nas configurações do seu provedor.
+O envio de e-mails de notificações de compra/venda deve ser configurado, fornecendo um endereço de remetente e senha válida no arquivo `settings.py`. A autenticação via Gmail requer a configuração de uma "senha de aplicativos" nas configurações do seu provedor.
 
-Altere as seguintes linhas com suas informações de remetente:
+Em `settings.py`, altere as seguintes linhas com suas informações de remetente:
 
 `EMAIL_HOST_USER = 'yourAppEmail@gmail.com'`
 
@@ -49,7 +52,7 @@ Altere as seguintes linhas com suas informações de remetente:
 
 
 # Iniciando a aplicação
-O serviço de obter as cotações periodicamente e de envio de emails opera no background utilizando a biblioteca `django4-background-tasks`. Para tal, essa deve ser iniciada juntamente com o servidor da aplicação em outro terminal, através do comando `python manage.py process_tasks`. Esse terminal deve ser mantido operante durante todo o uso da aplicação.
+O serviço de obter cotações periódicas e envio de emails executa em background, através da biblioteca `django4-background-tasks`. Assim, essa deve ser iniciada juntamente com o servidor da aplicação em outro terminal, através do comando `python manage.py process_tasks`. Esse terminal deve ser mantido em execução durante todo o uso da aplicação.
 
 # URLs
 A URL base da aplicação é
