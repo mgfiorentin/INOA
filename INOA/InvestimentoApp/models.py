@@ -9,16 +9,16 @@ class AtivosMonitorados(models.Model):
     tunel_max = models.DecimalField('Túnel máx.', 
                                     max_digits=10, 
                                     decimal_places=2, 
-                                    validators=[MinValueValidator(0, 'Túnel máx. deve ser maior que R$ 0,00.')
+                                    validators=[MinValueValidator(0.001, 'Túnel máx. deve ser maior que R$ 0,00.')
                                     ])
     
     tunel_min = models.DecimalField('Túnel mín.', 
                                     max_digits=10, 
                                     decimal_places=2, 
-                                    validators=[MinValueValidator(0, 'Túnel míx. deve ser maior que R$ 0,00.')])
+                                    validators=[MinValueValidator(0.001, 'Túnel míx. deve ser maior que R$ 0,00.')])
     
     periodicidade = models.IntegerField('Periodicidade de atualização [h]', 
-                                        validators=[MinValueValidator(1, 'Periodicidade deve ser maior que 1h')])
+                                        validators=[MinValueValidator(1, 'Periodicidade deve ser no mínimo de 1 hora.')])
     email = models.EmailField(max_length=255)
     
 class HistoricoPrecos(models.Model):

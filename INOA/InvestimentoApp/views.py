@@ -29,6 +29,7 @@ def addAtivo(request):
     form = AtivoForm(request.POST or None)
     
     if form.is_valid():
+        form.clean()
         form.save()      
         ativo = form.cleaned_data['codigo_ativo']
         periodicidade_sec = form.cleaned_data['periodicidade']*60*60
