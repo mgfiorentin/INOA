@@ -1,6 +1,6 @@
 {%extends 'base.html'%} {% block conteudo %}
 
-<div class="container mt-4 card shadow-sm">
+<div class="container d-flex mt-4 card shadow-sm">
   <div class="card-header mt-2">
     <form class="pt-2">
       {{ ativos.form }}
@@ -15,7 +15,7 @@
           <th>Código do ativo</th>
           <th>Túnel máx.</th>
           <th>Túnel min</th>
-          <th>Periodicidade [h]</th>
+          <th class="d-none d-md-table-cell">Periodicidade [h]</th>
           <th></th>
           <th></th>
           <th></th>
@@ -24,9 +24,9 @@
         {% for ativo in ativos.qs%}
         <tr>
           <td>{{ativo.codigo_ativo}}</td>
-          <td>R$ {{ativo.tunel_max}}</td>
-          <td>R$ {{ativo.tunel_min}}</td>
-          <td>{{ativo.periodicidade}}</td>
+          <td style="white-space: nowrap;">R$ {{ativo.tunel_max}}</td>
+          <td style="white-space: nowrap;">R$ {{ativo.tunel_min}}</td>
+          <td class="d-none d-md-table-cell">{{ativo.periodicidade}}</td>
           <td>
             <a href="{% url 'historicoAtivo' ativo.id %}"
               ><button class="btn btn-sm btn-outline-secondary">

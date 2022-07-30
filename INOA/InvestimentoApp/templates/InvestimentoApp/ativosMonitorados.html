@@ -1,7 +1,7 @@
 {%extends 'base.html'%} {% block conteudo %}
 
 <div>
-  <div class="container card shadow-sm mt-4">
+  <div class="d-flex container card shadow-sm mt-4">
     <div class="card-header"><h4 class="pt-2">Ativos monitorados</h4></div>
     <div class="mt-2">
       <a href="{% url 'listaEmpresas' %}"
@@ -20,13 +20,13 @@
     </div>
 
     <div class="card-body">
-      <table class="table">
+      <table class="table" >
         <thead>
           <tr>
             <th>Código do ativo</th>
             <th>Túnel máx.</th>
             <th>Túnel min</th>
-            <th>Periodicidade [h]</th>
+            <th class="d-none d-md-table-cell">Periodicidade [h]</th>
             <th></th>
             <th></th>
             <th></th>
@@ -35,9 +35,9 @@
           {% for ativo in ativos%}
           <tr>
             <td>{{ativo.codigo_ativo}}</td>
-            <td>R$ {{ativo.tunel_max}}</td>
-            <td>R$ {{ativo.tunel_min}}</td>
-            <td>{{ativo.periodicidade}}</td>
+            <td style="white-space: nowrap;">R$ {{ativo.tunel_max}}</td>
+            <td style="white-space: nowrap;">R$ {{ativo.tunel_min}}</td>
+            <td class="d-none d-md-table-cell" >{{ativo.periodicidade}}</td>
             <td>
               <a href="{% url 'historicoAtivo' ativo.id %}"
                 ><button class="btn btn-sm btn-outline-secondary">

@@ -1,6 +1,6 @@
 {%extends 'base.html'%} {% block conteudo %}
 
-<div class="container mt-3 card round shadow-sm">
+<div class="container d-flex mt-3 card round shadow-sm">
   <div>
     <div class="card-header"><h4>Lista de Empresas</h4></div>
     <p></p>
@@ -25,7 +25,7 @@
           <tr>
             <th>Código da Empresa</th>
             <th>Nome da Empresa</th>
-            <th>Setor Econômico</th>
+            <th class="d-none d-md-table-cell">Setor Econômico</th>
             <th>Ativos</th>
             <th></th>
           </tr>
@@ -34,7 +34,7 @@
           <tr>
             <td>{{empresa.cd_acao_rdz}}</td>
             <td>{{empresa.nm_empresa}}</td>
-            <td>{{empresa.setor_economico}}</td>
+            <td class="d-none d-md-table-cell">{{empresa.setor_economico}}</td>
             <td>{{empresa.cd_acao}}</td>
             <td>
               <a href="{% url 'detalheEmpresa' empresa.id %}">

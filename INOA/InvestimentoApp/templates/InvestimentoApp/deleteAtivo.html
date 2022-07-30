@@ -1,9 +1,9 @@
 {%extends 'base.html'%} {% block conteudo %}
 
-<div class="card shadow-sm col-sm-3 container m-3">
+<div class="card d-flex shadow-sm mt-3 container">
   <h4 class="card-header">Excluir ativo {{ativo.codigo_ativo}}</h4>
 
-  <div class="card-body">
+  <div class="card-body" style="text-align:center">
     Deseja excluir o ativo {{ativo.codigo_ativo}}?
     <p></p>
     <form method="POST">

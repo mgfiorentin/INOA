@@ -1,23 +1,23 @@
-{%extends 'base.html'%}
+{%extends 'base.html'%} {% block conteudo %}
 
-{% block conteudo %}
+<div class="container d-flex card shadow-sm mt-3" style="max-width: 20rem">
+  <h4 class="card-header">Editar ativo</h4>
 
-<div class="container card m-3 col-md-2 shadow-sm mt-3">
-<h4 class="card-header">Editar ativo</h4>
-
-<div class="card-body"><form
-  style="display: flex; flex-direction: column; max-width: 15rem"
-  action="/investimento/ativos/{{ativo.id}}/edit"
-  method="post"
->
-  {% csrf_token %} {{ form }}
-  <div class="p-3">
-    <a href="{% url 'consultaAtivos' %}"
-      ><button class="btn btn-outline-primary">Voltar</button></a
+  <div class="card-body">
+    <form
+      style="display: flex; flex-direction: column"
+      action="/investimento/ativos/{{ativo.id}}/edit"
+      method="post"
     >
-    <input class="btn btn-primary" type="submit" value="Atualizar" />
+      {% csrf_token %} {{ form }}
+      <div class="p-3" style="text-align: center">
+        <a class="btn btn-outline-primary" href="{% url 'consultaAtivos' %}"
+          >Voltar</a
+        >
+        <input class="btn btn-primary" type="submit" value="Atualizar" />
+      </div>
+    </form>
   </div>
-</form>
-</div>
 
-{%endblock conteudo%}
+  {%endblock conteudo%}
+</div>

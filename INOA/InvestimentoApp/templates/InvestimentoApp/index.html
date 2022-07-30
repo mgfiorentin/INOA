@@ -1,6 +1,6 @@
 {%extends 'base.html'%} {% block conteudo %}
 
-<div class="card container shadow-sm mt-4">
+<div class="card d-flex container shadow-sm mt-4">
   <div class="card-header">
     <h3 class="pt-1">
       Bem vindo ao aplicativo para lhe ajudar a investir de forma inteligente!
@@ -8,24 +8,30 @@
   </div>
   <div class="card-body">
     <p>O que gostaria de fazer?</p>
-    <div style=" text-align: center; ">
-      <a href="{% url 'listaEmpresas' %}"
-        ><button class="btn btn-lg btn-outline-primary">
-          Listar empresas com ativos na B3
-        </button></a
-      >
+    <div style="text-align: center">
+      <div class="mt-3 mb-3">
+        <a href="{% url 'listaEmpresas' %}"
+          ><button class="btn btn-lg btn-outline-primary">
+            Listar empresas da B3
+          </button></a
+        >
+      </div>
 
-      <a href="{% url 'addAtivo' %}"
-        ><button class="btn btn-lg btn-outline-success">
-          Monitorar novo ativo
-        </button></a
-      >
+      <div class="mb-3">
+        <a href="{% url 'addAtivo' %}"
+          ><button class="btn btn-lg btn-outline-success">
+            Monitorar novo ativo
+          </button></a
+        >
+      </div>
 
-      <a href="{%url 'consultaAtivos'%}">
-        <button type="button" class="btn btn-lg btn-outline-info">
-          Consultar ativos monitorados
-        </button>
-      </a>
+      <div>
+        <a href="{%url 'consultaAtivos'%}">
+          <button type="button" class="btn btn-lg btn-outline-info">
+            Consultar ativos
+          </button>
+        </a>
+      </div>
     </div>
   </div>
 </div>

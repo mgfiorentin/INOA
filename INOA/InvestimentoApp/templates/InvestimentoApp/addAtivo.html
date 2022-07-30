@@ -1,18 +1,18 @@
 {% extends 'base.html' %} {% block conteudo %}
-<div class="container card m-3 col-md-2 shadow-sm mt-3">
+<div class="container d-flex card shadow-sm mt-3" style="max-width: 20rem">
   <h4 class="card-header">Novo ativo</h4>
   <div class="card-body">
     <div>
       <form
-        style="display: flex; flex-direction: column; max-width: 15rem"
+        style="display: flex; flex-direction: column"
         action="/investimento/ativos/add"
         method="post"
       >
         {% csrf_token %} {{ form }}
 
-        <div class="p-3">
-          <a href="{% url 'consultaAtivos' %}"
-            ><button class="btn btn-outline-primary">Voltar</button></a
+        <div class="mt-2" style="text-align: center">
+          <a class="btn btn-outline-primary" href="{% url 'consultaAtivos' %}"
+            >Voltar</a
           >
           <input class="btn btn-primary" type="submit" value="Monitorar" />
         </div>
